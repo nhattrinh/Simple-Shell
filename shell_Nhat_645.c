@@ -21,16 +21,26 @@ int main(void){
         fflush(stdout);
         char * userInput = readInput();
         char * ptr;
+        int argsIndex = 0;
         int numOfChars = 0;
         // begin parameterizing user arguments
         while (*userInput != '\0'){
             if (*userInput > 'a' && *userInput < 'Z'){
-                
+                numOfChars++;
             }
             else if (*userInput == ' '){
-                
+                char * ptr = malloc(sizeof(char) * numOfChars + 1);
+                for (int i = 0; i < numOfChars + 1; i++){
+                    ptr = userInput;
+                    if (i == numOfChars + 1){
+                        ptr = '\0';
+                        args[argsIndex++] = ptr;
+                        free(ptr - numOfChars);
+                    }
+                }
             }
-            
+            printf("%c",*userInput);
+            userInput++;
         }
         // end parameterization of user arguments
     }
