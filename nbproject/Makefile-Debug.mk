@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/shell_Nhat_645.o
+	${OBJECTDIR}/shell.o
 
 
 # C Compiler Flags
@@ -62,10 +62,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs149-hw1: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cs149-hw1 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/shell_Nhat_645.o: shell_Nhat_645.c
+${OBJECTDIR}/shell.o: shell.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shell_Nhat_645.o shell_Nhat_645.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shell.o shell.c
 
 # Subprojects
 .build-subprojects:
