@@ -120,5 +120,6 @@ int main(void){
         // parent has not created a child process
         else if (pid < 0)
             printf("Unable to create child process.\n");
+    }
     return 0;
 }
