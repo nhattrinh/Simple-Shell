@@ -93,26 +93,32 @@ int main(void){
         // parent process gets in this block and wait
         if (pid > 0 && parentWait){
             wait(status);
+            if (*status > 256)
+                should_run = 0;
         }
         
         // child process gets in this block and execute command
         else if (pid == 0){
+            // since exit is a builtin bash command
+            // this command must be built into this shell
+            if (strcmp(args[0],"exit") == 0)
+                exit(-1);
+            
             // if execvp() returns -1 then that means command not found/valid
             // post EXIT_FAILURE status for parent process to see
-            if (execvp(args[0],args) == -1){
+            else if (execvp(args[0],args) == -1){
                 printf("Unable to execute your command.\n");
                 exit(EXIT_FAILURE);
             }
             
             // if execvp() system call successful, post EXIT_SUCCESSFUL status
             // .. for parent to see
-            exit(EXIT_SUCCESS);
+            exit(0);
         }
         
         // if pid_t pid is not greater or equal to zero ..
         // parent has not created a child process
-        else
+        else if (pid < 0)
             printf("Unable to create child process.\n");
-    }
     return 0;
 }
