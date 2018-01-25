@@ -1,9 +1,3 @@
-/*
-Student: Nhat Trinh
-Class:	CS 149 Fall 2017
-SID:	011227645
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
