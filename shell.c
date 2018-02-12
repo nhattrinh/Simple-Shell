@@ -25,10 +25,10 @@ int main(void){
     int should_run = 1;
     
     // print only once the message
-    printf("CS149 Shell from Nhat Trinh\n");
+    printf("Simple Bash Shell from Nhat Trinh\n");
     while(should_run){
         // print the cli interface message
-        printf("Nhat-645>");
+        printf("Nhat-$>");
         fflush(stdout);
         
         // boolean to let parent process wait for child process
